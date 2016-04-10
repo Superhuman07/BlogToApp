@@ -21,4 +21,21 @@ public class MainActivity extends AppCompatActivity {
         // load it
         webView.loadUrl(url);
     }
+    @Override
+    public void onBackPressed() {
+        WebView webView = (WebView) findViewById(R.id.webView);
+        if(webView!=null)
+        {
+            if(webView.canGoBack())
+            {
+                // go back to previous state
+                webView.goBack();
+            }
+            else
+            {
+                //close the activity
+                super.onBackPressed();
+            }
+        }
+    }
 }
